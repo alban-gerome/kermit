@@ -77,7 +77,7 @@ I recommend keeping track the number of page element interactions tracked on eac
 * high number of page element interactions
 * high number of page views
 
-This specific quadrant will generate most server calls. Create a second custom metric with the follwing formula:
+This specific quadrant will generate most server calls. Create a second custom metric with the following formula:
 
 number of interactions / number of page views
 
