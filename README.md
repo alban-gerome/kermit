@@ -12,7 +12,7 @@ Whenever a visitor interacts with a page element a multitude of Javascript event
 * change
 * blur
 
-For example the only Javascript event that will matter for a button is a _click_ event. All other Javascript events have little to no value for us except the click event when the page element is a button. In the case of a drop-down however the _click_ event will be incorrect as it would fire twice, once when you open the drop-down and a second time when you actually select an option. When dealing with drop-downs you will want the _change_ Javascript event. This leaves the text fields and here the only event of interest is the _blur_ event. More on this below.
+For example the only Javascript event that will matter for a button is a _click_ event. All other Javascript events have little to no value for us except the click event when the page element is a button. In the case of a drop-down however the _click_ event will be incorrect as it would fire twice, once when you open the drop-down and a second time when you actually select an option. When dealing with drop-downs you will want the _change_ Javascript event. This leaves the text fields and here the only event of interest is the _blur_ event.
 
 Marking up the page elements:
 -----------------------------
@@ -24,7 +24,7 @@ Now the value of the _data-analytics-interaction-description_ HTML attribute wil
 Automatically handle the rest:
 ------------------------------
 
-Now kermit will scan through the document for tags containing the _data-analytics-interaction-description_ HTML attribute. It will find the tag name and if necessary the _type_ and _href_ attributes. For example an _input_ tag with _type="radio" and an _input_ with _type="text"_ will be in 2 different categories (click, change, blur). Therefore the tag name is not enough. Then kermit will determine the category automatically and attach the appropriate event listener to the element. kermit provides a cross-browser event listener.
+Now kermit will scan through the document for tags containing the _data-analytics-interaction-description_ HTML attribute. It will find the tag name and if necessary the _type_ and _href_ attributes. For example an _input_ tag with _type="radio"_ and an _input_ with _type="text"_ will be in 2 different categories (click, change, blur). Therefore the tag name is not enough. Then kermit will determine the category automatically and attach the appropriate event listener to the element. kermit provides a cross-browser event listener.
 
 For links that will result in loading a completely new page there could be a racing condition where the new page is trying to load and the analytics tracking request is trying to fire. Which one will happen first can be random so kermit applies a 500 milliseconds delay to the new page loading to leave enough time for the tracking request to be sent out. This delay does not apply to any other interaction and this ensures more accurate analytics data. The delay duration can also be edited in the config section.
 
