@@ -6,7 +6,7 @@ Introduction:
 
 If you have some experience with web analytics implementation there will be 2 types of tracking requirements. First you will need to track page views, second you will need to track interactions with page elements. Kermit is a group of Javascript functions that will help you with the 2nd type of tracking requirements, i.e. page element interactions. In fact once kermit is on every web page of your site you no longer need an analytics expert to tag perhaps 80% of your interactions and fewer headaches for your developers.
 
-Whenever a visitor interacts with a page element a multitude of Javascript events will fire. So what do I mean by _page element interactions_ exactly? I mean clicks on buttons, drop-down selections, text fields. 3 Javascript events are of particular interest but only one Javascript event will be relevant. We will have 3 categories of page elements based on the followin Javascript events
+Whenever a visitor interacts with a page element a multitude of Javascript events will fire. So what do I mean by _page element interactions_ exactly? I mean clicks on buttons, drop-down selections, text field entries. 3 Javascript events are of particular interest but only one Javascript event will be relevant. We will have 3 categories of page elements based on the following Javascript events
 
 * click
 * change
@@ -70,7 +70,7 @@ _blur_ category
 How to use the demo files:
 --------------------------
 
-Copy all 3 files and open your browser with the Javascript console opened. Start interacting with the page elements. Please note that the demo does not actually fire any analytics requests but only writes the description to the Javascript console. You would need to replace the _console.log_ function by the function used by your web analytics tool of choice but that's a trivial change. I personally use kermit with Adobe Analytics.
+Copy all 3 files and open your browser with the Javascript console opened. Start interacting with the page elements or check it out in action here: http://www.albangerome.com/kermit/test.php. Please note that the demo does not actually fire any analytics requests but only writes the description to the Javascript console. You would need to replace the _console.log_ function by the function used by your web analytics tool of choice but that's a trivial change. I personally use kermit with Adobe Analytics.
 
 Alban Gérôme
 22 August 2016
