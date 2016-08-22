@@ -77,7 +77,11 @@ I recommend keeping track the number of page element interactions tracked on eac
 * high number of page element interactions
 * high number of page views
 
-This specific quadrant will generate most server calls. Create a custom metric with the follwing formula: number of interactions / number of page views. You can then create a page report with this custom metric and find which pages will require action: determining which page elements are tracked and yet provide little business value. Of course a better plan would be to require a review of which page element interactions represent a key interaction and using Kermit only on these elements. In a nutshell Kermit might not need a web analytics implementation expert but a web analyst is still required to control the volume of server calls.
+This specific quadrant will generate most server calls. Create a custom metric with the follwing formula:
+
+number of interactions / number of page views
+
+You can then create a page report with this custom metric and find which pages will require action: determining which page elements are tracked and yet provide little business value. Of course a better plan would be to require a review of which page element interactions represent a key interaction and using Kermit only on these elements. In a nutshell Kermit might not need a web analytics implementation expert but a web analyst is still required to control the volume of server calls.
 
 How to use the demo files:
 --------------------------
