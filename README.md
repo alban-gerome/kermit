@@ -67,6 +67,18 @@ _blur_ category
 * input[week]
 * textarea
 
+Controlling the number of server calls:
+---------------------------------------
+
+Some of you might want to use Kermit with an entreprise web analytics solution. Each time a tracking request is triggered a server call is generated and this incurs a cost. To be more precise this cost is deducted from a monthly server calls allowance. The business owners fearing that a key interaction would not be tracked tend to require all page element interactions to be tracked. Kermit would certainly make this easier than ever before but be prepared to discuss your server calls allowance with your web analytics provider sooner rather than later.
+
+I recommend keeping track the number of page element interactions tracked on each page. You could use a page view attribute such as a _s.prop_ if you use Adobe Analytics. Then consider a 2-dimension quadrant to identify pages with:
+
+* high number of page element interactions
+* high number of page views
+
+This specific quadrant will generate most server calls. Create a custom metric with the follwing formula: number of interactions / number of page views. You can then create a page report with this custom metric and find which pages will require action: determining which page elements are tracked and yet provide little business value. Of course a better plan would be to require a review of which page element interactions represent a key interaction and using Kermit only on these elements. In a nutshell Kermit might not need a web analytics implementation expert but a web analyst is still required to control the volume of server calls.
+
 How to use the demo files:
 --------------------------
 
