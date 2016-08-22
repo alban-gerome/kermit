@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kermit test page</title>
+    <link rel="stylesheet" href="kermit.css" />
+  </head>
+  <body>
+    <h1>Kermit test page</h1>
+    <p>
+      <h2>Elements emitting a <i>click</i> Javascript event</h2>
+      <table>
+        <tr>
+      	  <td>Link</td>
+      	  <td><a href="javascript:void(0)" data-analytics-interaction-description="0">Link</a></td>
+        </tr>
+        <tr>
+      	  <td>Button tag</td>
+      	  <td><button data-analytics-interaction-description="1">A</button></td>
+        </tr>
+        <tr>
+          <td>Input button tag</td>
+      	  <td><input value="B" type="button" data-analytics-interaction-description="2" /></td>
+        </tr>
+        <tr>
+      	  <td>Input checkbox tag</td>
+      	  <td><input value="C" type="checkbox" checked="checked" data-analytics-interaction-description="3"/></td>
+        </tr>
+      </table>
+    </p>
+    <p>
+      <h2>Elements emitting a <i>change</i> Javascript event</h2>
+      <table>
+        <tr>
+      	  <td>Drop-down (single selection)</td>
+      	  <td>
+      	    <select data-analytics-interaction-description="4">
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+      	  <td>Drop-down (multiple selection)</td>
+      	  <td>
+      	    <select multiple data-analytics-interaction-description="5">
+              <option value="G">G</option>
+              <option value="H">H</option>
+              <option value="I">I</option>
+            </select>
+      	  </td>
+        </tr>
+        <tr>
+      	  <td>Radio buttons</td>
+      	  <td>
+      	    <input type="radio" name="rb" checked="checked" data-analytics-interaction-description="6" />
+            <input type="radio" name="rb" checked="" data-analytics-interaction-description="7" />
+      	  </td>
+        </tr>
+      </table>
+    </p>
+    <p>
+      <h2>Elements emitting a <i>blur</i> Javascript event</h2>
+      <table>
+        <tr>
+      	  <td>Input text tag</td>
+      	  <td>
+      	  	 <input type="text" data-analytics-interaction-description="8" />
+      	  </td>
+        </tr>
+        <tr>
+      	  <td>Textarea tag</td>
+      	  <td><textarea data-analytics-interaction-description="9" /></textarea></td>
+        </tr>
+      </table>
+    </p>
+  	<script type="text/javascript" src="kermit.js"></script>
+  </body>
+</html>

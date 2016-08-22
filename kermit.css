@@ -1,0 +1,44 @@
+body{
+	font-family: Arial;
+	margin: 0;
+  padding: 0;
+  width: 800px;
+}
+  h1{
+    background-color: #304b5f;
+	  color: #fff;
+    font-size: 30px;
+    font-style: italic;
+    height: 50px;
+    margin: 0;
+    padding: 10px 0px 0px 10px;
+    text-shadow: 3px 3px #111;
+  }
+    h2, table{
+      padding: 0px 0px 0px 10px;
+    }
+      tr{
+        width: 780px;
+      }
+      tr:nth-child(odd){
+        background-color: #ddf;
+      }
+        td:nth-child(1){
+        	width: 250px;
+        }
+        td:nth-child(2){
+        	width: 250px;
+        }
+          input[type=checkbox]{
+            transform: scale(1.5);
+          }
+          input[type=text]{
+            width: 100px;
+          }
+          select{
+            height: 18px;
+          }
+          textarea{
+            height: 15px;
+            width: 99px;
+          }
