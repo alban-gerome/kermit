@@ -70,7 +70,7 @@ _blur_ category
 How to use the demo files:
 --------------------------
 
-Copy all 3 files and open your browser with the Javascript console opened. Start interacting with the page elements or check it out in action here: http://www.albangerome.com/Kermit/test.php. Please note that the demo does not actually fire any analytics requests but only writes the description to the Javascript console. You would need to replace the _console.log_ function by the function used by your web analytics tool of choice but that's a trivial change. I personally use Kermit with Adobe Analytics.
+Copy all 3 files and open your browser with the Javascript console opened. Start interacting with the page elements or check it out in action here: http://www.albangerome.com/Kermit/test.php. Please note that the demo does not actually fire any analytics requests but only writes the description to the Javascript console. You would need to replace the _console.log_ function by the function used by your web analytics tool of choice but that's a trivial change. I personally use Kermit with Adobe Analytics and serve it on the web pages with a DTM page load rule.
 
 Alban Gérôme
 22 August 2016
