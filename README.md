@@ -4,7 +4,7 @@ Kermit
 Introduction:
 -------------
 
-If you have some experience with web analytics implementation there will be 2 types of tracking requirements. First you will need to track page views, second you will need to track interactions with page elmements. Kermit is a group of Javascript functions that will help you with the 2nd type of tracking requirements, i.e. page element interactions.
+If you have some experience with web analytics implementation there will be 2 types of tracking requirements. First you will need to track page views, second you will need to track interactions with page elements. Kermit is a group of Javascript functions that will help you with the 2nd type of tracking requirements, i.e. page element interactions. In fact once kermit is on every web page of your site you no longer need an analytics expert to tag perhaps 80% of your interactions and fewer headaches for your developers.
 
 Whenever a visitor interacts with a page element a multitude of Javascript events will fire. So what do I mean by _page element interactions_ exactly? I mean clicks on buttons, drop-down selections, text fields. 3 Javascript events are of particular interest but only one Javascript event will be relevant. We will have 3 categories of page elements based on the followin Javascript events
 
