@@ -39,33 +39,33 @@ I have already mentioned 2 settings above which you can edit in the config secti
 There is also another item which I have mentioned briefly, the list of elements and the relevant HTML attribute which will be used to determine which category of the interaction belongs to:
 
 _click_ category
-*input[button]
-*input[submit]
-*input[checkbox]
-*button
-*a[href]
-*area[href]
+* input[button]
+* input[submit]
+* input[checkbox]
+* button
+* a[href]
+* area[href]
 
 _change_ category
-*select[]
-*input[radio]
+* select[]
+* input[radio]
 
 _blur_ category
-*input[text]
-*input[color]
-*input[date]
-*input[datetime]
-*input[datetime-local]
-*input[email]
-*input[month]
-*input[number]
-*input[range]
-*input[search]
-*input[tel]
-*input[time]
-*input[url]
-*input[week]
-*textarea
+* input[text]
+* input[color]
+* input[date]
+* input[datetime]
+* input[datetime-local]
+* input[email]
+* input[month]
+* input[number]
+* input[range]
+* input[search]
+* input[tel]
+* input[time]
+* input[url]
+* input[week]
+* textarea
 
 How to use the demo files:
 --------------------------
