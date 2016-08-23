@@ -22,7 +22,7 @@ The first thing consists of adding a custom HTML attribute to the page elements 
 Now the value of the _data-analytics-interaction-description_ HTML attribute will be passed to your web analytics tool. Please make sure you pass a unique value as it will help you do a proper breakdown of all in the interactions tracked across your website. Here's a code example, first without and then with the Kermit HTML attribute:
 
     <input value="B" type="button" />
-    <input value="B" type="button" data-analytics-interaction-description="2" />
+    <input value="B" type="button" data-analytics-interaction-description="Button XYZ was clicked" />
 
 Automatically handle the rest:
 ------------------------------
