@@ -12,6 +12,18 @@
           element["on" + eventType] = callback;
         };
       },
+      getCheckboxValue:function(element, that){
+      	var a, b = kermit.config.interactionDescSelector.replace(/[\[\]]/g,"");
+        if(element.tagName=="INPUT" && element.type=="checkbox"){
+          a = [
+            element.getAttribute(b),
+            that.checked ? "checked" : "unchecked"
+          ].join(" - ");
+        }else{
+          a = element.getAttribute(b);
+        };
+        return a;
+      },
       getEventType:function(element){
         var elementTagName  = element.nodeName;
         var elementType     = element.hasAttribute("type") ? element.getAttribute("type") : null||
@@ -66,21 +78,12 @@
         document.querySelectorAll(kermit.config.interactionDescSelector),
         function(element){
           var a = kermit.utils.getEventType(element);
-          var b = kermit.config.interactionDescSelector.replace(/[\[\]]/g,"");
           if(!!a) kermit.utils.addListener(
             element,
             a,
             function(){
-              var c;
-              if(element.tagName=="INPUT" && element.type=="checkbox"){
-                c = [
-                  element.getAttribute(b),
-                  this.checked ? "checked" : "unchecked"
-                ].join(" - ");
-              }else{
-                c = element.getAttribute(b);
-              };
-              kermit.utils.adobe.trackLink(element, c);
+              var b = kermit.utils.getCheckboxValue(element, this);
+              console.log(b);
             }
           );
         }

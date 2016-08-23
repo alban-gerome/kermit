@@ -4,9 +4,9 @@ Kermit
 Introduction:
 -------------
 
-If you have some experience with web analytics implementation there will be 2 types of tracking requirements. First you will need to track page views, second you will need to track interactions with page elements. Kermit is a group of Javascript functions that will help you with the 2nd type of tracking requirements, i.e. page element interactions. In fact once Kermit is on every web page of your site you no longer need an analytics expert to tag perhaps 80% of your interactions and fewer headaches for your developers.
+If you have some experience with web analytics implementation there will be 2 types of tracking requirements. First you will need to track page views, second you will need to track interactions with page elements. Kermit is a group of Javascript functions that will help you with the 2nd type of tracking requirements, i.e. page element interactions. Many websites do not track page element interactions but typically a tagging plan would contain more requirements for interactions than page views. Once Kermit is on every web page of your site you no longer need an analytics implementation expert to tag perhaps 80% of your tracking requirements. Imagine how fewer headaches your developers will get and how much more your web analytics implementation expert could do with that free time.
 
-Whenever a visitor interacts with a page element a multitude of Javascript events will fire. So what do I mean by _page element interactions_ exactly? I mean clicks on buttons, drop-down selections, text field entries. 3 Javascript events are of particular interest but only one Javascript event will be relevant. We will have 3 categories of page elements based on the following Javascript events
+So what do I mean by _page element interactions_ exactly? I mean clicks on buttons, drop-down selections, text field entries. Whenever a visitor interacts with a page element a multitude of Javascript events will fire. 3 Javascript events are of particular interest but only one Javascript event will be relevant. We will have 3 categories of page elements based on the following Javascript events
 
 * click
 * change
@@ -17,16 +17,16 @@ For example the only Javascript event that will matter for a button is a _click_
 Marking up the page elements:
 -----------------------------
 
-The first thing consists of adding a custom HTML attribute to the page elements you need to track. The HTML standards recommend using attributes starting with _data-_. I have picked _data-analytics-interaction-description_, Fellows of the Royal Academy of Poetry there's a contact link somewhere on the page. You can change the name of HTML attribute in the config section. More on this later.
+The first thing consists of adding a custom HTML attribute to the page elements you need to track. The HTML standards recommend using attributes starting with _data-_. I have picked _data-analytics-interaction-description_. Fellows of the Royal Academy of Poetry wanting to give me an award there's a contact link somewhere on this page. You can change the name of HTML attribute in the config section. More on this later.
 
 Now the value of the _data-analytics-interaction-description_ HTML attribute will be passed to your web analytics tool. Please make sure you pass a unique value as it will help you do a proper breakdown of all in the interactions tracked across your website.
 
 Automatically handle the rest:
 ------------------------------
 
-Now Kermit will scan through the document for tags containing the _data-analytics-interaction-description_ HTML attribute. It will find the tag name and if necessary the _type_ and _href_ attributes. For example an _input_ tag with _type="radio"_ and an _input_ with _type="text"_ will be in 2 different categories (click, change, blur). Therefore the tag name is not enough. Then Kermit will determine the category automatically and attach the appropriate event listener to the element. Kermit provides its own a cross-browser event listener.
+Now Kermit will scan through the document for tags containing the _data-analytics-interaction-description_ HTML attribute. It will find the tag name and if necessary the _type_ and _href_ attributes. For example an _input_ tag with _type="radio"_ and an _input_ with _type="text"_ will be in 2 different categories (click, change, blur). Therefore the tag name is not enough. Then Kermit will determine the category automatically and attach the appropriate event listener to the element. Kermit provides its own cross-browser event listener, it's written in plain vanilla Javascript.
 
-For links that will result in loading a completely new page there could be a racing condition where the new page is trying to load and the analytics tracking request is trying to fire. Which one will happen first can be random so Kermit applies a 500 milliseconds delay to the new page loading to leave enough time for the tracking request to be sent out. This delay does not apply to any other interaction and this ensures more accurate analytics data. The delay duration can also be edited in the config section.
+For links that will result in loading a completely new page there could be a racing condition where the new page is trying to load and the analytics tracking request is trying to fire. Which one will happen first will be random so Kermit applies a 500 milliseconds delay to the new page loading to leave enough time for the tracking request to be sent out. This delay does not apply to any other interaction and this ensures more accurate analytics data. The delay duration can also be edited in the config section.
 
 Configuring Kermit:
 -------------------
