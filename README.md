@@ -17,7 +17,7 @@ For example the only Javascript event that will matter for a button is a _click_
 Marking up the page elements:
 -----------------------------
 
-The first thing consists of adding a custom HTML attribute to the page elements you need to track. The HTML standards recommend using attributes starting with _data-_. I have picked _data-analytics-interaction-description_. Fellows of the Royal Academy of Poetry wanting to give me an award there's a contact link somewhere on this page. You can change the name of HTML attribute in the config section. More on this later.
+The first thing consists of adding a custom HTML attribute to the page elements you need to track. The HTML standards recommend using attributes starting with _data-_. I have picked _data-analytics-interaction-description_. Fellows of the Royal Academy of Poetry wanting to contact me about an award there's a contact link somewhere on this page. You can change the name of HTML attribute in the config section. More on this later.
 
 Now the value of the _data-analytics-interaction-description_ HTML attribute will be passed to your web analytics tool. Please make sure you pass a unique value as it will help you do a proper breakdown of all in the interactions tracked across your website. Here's a code example, first without and then with the Kermit HTML attribute:
 
