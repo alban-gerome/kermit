@@ -77,11 +77,11 @@ Some of you might want to use Kermit with an entreprise web analytics solution. 
 
 I recommend keeping track the number of page element interactions tracked on each page. You could use a page view attribute such as a _s.prop_ if you use Adobe Analytics. Examples:
 
-    s.prop67 = document.querySelector("[data-analytics-interaction-description]").length;
+    s.prop67 = document.querySelectorAll("[data-analytics-interaction-description]").length;
 
 or if you prefer using Adobe processing rules:    
 
-    s.contextData.kermitUse = document.querySelector("[data-analytics-interaction-description]").length;
+    s.contextData.kermitUse = document.querySelectorAll("[data-analytics-interaction-description]").length;
 
 Then consider a 2-dimension quadrant to identify pages with:
 
