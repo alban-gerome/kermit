@@ -88,7 +88,11 @@ Then consider a 2-dimension quadrant to identify pages with:
 * high number of page element interactions using Kermit
 * high number of page views
 
-This specific quadrant will generate most server calls. Create a second custom metric with the following formula:
+This specific quadrant will generate most server calls.
+
+![High traffic and many interactions](https://github.com/alban-gerome/kermit/blob/master/matrix.png)
+
+Create a second custom metric with the following formula:
 
 number of page elements using Kermit / number of page views
 
