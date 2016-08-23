@@ -19,7 +19,13 @@ Marking up the page elements:
 
 The first thing consists of adding a custom HTML attribute to the page elements you need to track. The HTML standards recommend using attributes starting with _data-_. I have picked _data-analytics-interaction-description_. Fellows of the Royal Academy of Poetry wanting to give me an award there's a contact link somewhere on this page. You can change the name of HTML attribute in the config section. More on this later.
 
-Now the value of the _data-analytics-interaction-description_ HTML attribute will be passed to your web analytics tool. Please make sure you pass a unique value as it will help you do a proper breakdown of all in the interactions tracked across your website.
+Now the value of the _data-analytics-interaction-description_ HTML attribute will be passed to your web analytics tool. Please make sure you pass a unique value as it will help you do a proper breakdown of all in the interactions tracked across your website. Here's a code example:
+
+* Without Kermit
+    <input value="B" type="button" />
+
+* Same code with Kermit
+    <input value="B" type="button" _data-analytics-interaction-description="2"_ />
 
 Automatically handle the rest:
 ------------------------------
@@ -72,16 +78,26 @@ Controlling the number of server calls:
 
 Some of you might want to use Kermit with an entreprise web analytics solution. Each time a tracking request is triggered a server call is generated and this incurs a cost. To be more precise this cost is deducted from a monthly server calls allowance. The business owners fearing that a key interaction would not be tracked tend to require all page element interactions to be tracked. Kermit would certainly make this easier than ever before but be prepared to discuss your server calls allowance with your web analytics provider sooner rather than later.
 
-I recommend keeping track the number of page element interactions tracked on each page. You could use a page view attribute such as a _s.prop_ if you use Adobe Analytics. Then consider a 2-dimension quadrant to identify pages with:
+I recommend keeping track the number of page element interactions tracked on each page. You could use a page view attribute such as a _s.prop_ if you use Adobe Analytics. Examples:
 
-* high number of page element interactions
+    s.prop67 = document.querySelector("[data-analytics-interaction-description]").length;
+
+or if you prefer using Adobe processing rules:    
+
+    s.contextData.kermitUse = document.querySelector("[data-analytics-interaction-description]").length;
+
+Then consider a 2-dimension quadrant to identify pages with:
+
+* high number of page element interactions using Kermit
 * high number of page views
 
 This specific quadrant will generate most server calls. Create a second custom metric with the following formula:
 
-number of interactions / number of page views
+number of page elements using Kermit / number of page views
 
-You can then create a page report with this custom metric and find which pages will require action: determining which page elements are tracked and yet provide little business value. Of course a better plan would be to require a review of which page element interactions represent a key interaction and using Kermit only on these elements. In a nutshell Kermit might not need a web analytics implementation expert but a web analyst is still required to control the volume of server calls.
+You can then create a page report, i.e each row will represent a page, with this custom metric. By ranking that report by the custom metric in descending order the pages at the top of the report will be pages with traffic and a large number of page element interactions tracked. Your next course of action is to review these page element interactions and remove the Kermit HTML attribute from page elements without business value.
+
+Of course a better plan would be to require a review of which page element interactions represent a key interaction and using Kermit only on these elements. In a nutshell Kermit might not need a web analytics implementation expert but a web analyst is still required to keep your volume of server calls down.
 
 How to use the demo files:
 --------------------------
