@@ -8,13 +8,26 @@ body{
     background-color: #304b5f;
 	  color: #fff;
     font-size: 30px;
-    font-style: italic;
     height: 50px;
     margin: 0;
     padding: 10px 0px 0px 10px;
     text-shadow: 3px 3px #111;
   }
-    h2, table{
+  h2{
+    font-size: 25px;
+  }
+  h3{
+    font-size: 20px;
+  }
+  h2, h3{
+    background-color: #fff;
+    color:#000;
+    padding: 0px 0px 0px 10px;
+  }
+  h1, h2, h3{
+    font-style: italic;
+  }
+    table, p, section>a[href]{
       padding: 0px 0px 0px 10px;
     }
       tr{
@@ -23,10 +36,17 @@ body{
       tr:nth-child(odd){
         background-color: #ddf;
       }
-        td:nth-child(1){
+        table#overview td{
+          width: 200px;
+        }
+          table#overview tr:nth-child(1) td,
+          table#overview td:nth-child(1){
+            font-weight: bold;
+          }
+        table.tests td:nth-child(1){
         	width: 250px;
         }
-        td:nth-child(2){
+        table.tests td:nth-child(2){
         	width: 250px;
         }
           input[type=checkbox]{
