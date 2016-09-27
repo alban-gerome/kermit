@@ -37,14 +37,36 @@ Supporting multiple attributes and lookups - added Sep 29th 2016:
 Adding a single attribute for a description is very limited. In many occasions the interaction can be described by several different attributes. Kermit now supports a couple of new custom HTML5 attributes:
 
 * data-analytics-interaction-description
-* _data-analytics-interaction-key (new)_
 * _data-analytics-interaction-attribute-* (new)_
+* _data-analytics-interaction-key (new)_
 
-You can also rename these attributes in the config section. Basically the key attribute will be done to do a lookup and attach one or several data points to the tracking request to describe the interaction such as the site section, whether the visitor was logged in etc. The lookup data can be either stored internally inside the Kermit library file in _kermit.config.maps_ in the form of an object containing key-value pairs. The name of the object should match the value you have used for your key attribute on the HTML element. Kermit will then replace in the tracking request the key attribute on the HTML element with the data linked to that key.
+You can also rename these attributes in the config section. 
 
-Kermit now also supports a second type of lookup where the lookup data is stored in an external Javascript file. The external lookup data file paths are defined in the _kermit.config.dependencies_ array.
+Now Kermit also supports additional attributes on the HTML tag itself just like the _data-analytics-interaction-description_ atribute. You can add more data points simply by adding _data-analytics-interaction-attribute-*_ where you replace * with the suffix of your choice. The values of these parameters will be passed along your tracking request. Example:
 
-Now Kermit also supports additional attributes on the HTML tag itself just like the _data-analytics-interaction-description_ atribute. You can add more data points simply by adding _data-analytics-interaction-attribute-*_ where you replace * with the suffix of your choice. The values of these parameters will be passed along your tracking request.
+	<a href="javascript:void(0)"
+		data-analytics-interaction-attribute-a="multipleClick-aaa-a"
+		data-analytics-interaction-attribute-b="multipleClick-aaa-b"
+		data-analytics-interaction-attribute-c="multipleClick-aaa-c"
+	>Link</a>
+
+Basically the key attribute will be done to do a lookup and attach one or several data points to the tracking request to describe the interaction such as the site section, whether the visitor was logged in etc. The lookup data can be either stored internally inside the Kermit library file in _kermit.config.maps_ in the form of an object containing key-value pairs. The name of the object should match the value you have used for your key attribute on the HTML element. Kermit will then replace in the tracking request the key attribute on the HTML element with the data linked to that key. Example:
+
+	<select data-analytics-interaction-key="multipleInternalChange-eee">
+		<option value="E">E</option>
+		<option value="F">F</option>
+		<option value="G">G</option>
+	</select>
+
+Kermit now also supports a second type of lookup where the lookup data is stored in an external Javascript file. The external lookup data file paths are defined in the _kermit.config.dependencies_ array. Example:
+
+	<input type="radio" name="rb" checked="checked" data-analytics-interaction-key="multipleInternalChange-iii" />
+
+Let's look at _kermit.config.maps.dependencies:
+
+	dependencies:[
+		"include.js"
+	],
 
 You can use all these methods together. You might use the HTML element description and additional attributes to describe unique attributes of a given interaction and an external file lookup for description attributes shared across interactions happening on different pages.
 
