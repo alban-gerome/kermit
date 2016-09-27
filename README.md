@@ -50,7 +50,7 @@ Now Kermit also supports additional attributes on the HTML tag itself just like 
 		data-analytics-interaction-attribute-c="multipleClick-aaa-c"
 	>Link</a>
 
-Basically the key attribute will be done to do a lookup and attach one or several data points to the tracking request to describe the interaction such as the site section, whether the visitor was logged in etc. The lookup data can be either stored internally inside the Kermit library file in _kermit.config.maps_ in the form of an object containing key-value pairs. The name of the object should match the value you have used for your key attribute on the HTML element. Kermit will then replace in the tracking request the key attribute on the HTML element with the data linked to that key. Example:
+The key attribute will do a lookup and attach one or several data points to the tracking request to describe the interaction such as the site section, whether the visitor was logged in etc. The lookup data can be either stored internally inside the Kermit library file in _kermit.config.maps_ in the form of an object containing key-value pairs. The name of the object should match the value you have used for your key attribute on the HTML element. Kermit will then replace in the tracking request the key attribute on the HTML element with the data linked to that key. Example:
 
 	<select data-analytics-interaction-key="multipleInternalChange-eee">
 		<option value="E">E</option>
