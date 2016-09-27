@@ -31,6 +31,26 @@ Now Kermit will scan through the document for tags containing the _data-analytic
 
 For links that will result in loading a completely new page there could be a racing condition where the new page is trying to load and the analytics tracking request is trying to fire. Which one will happen first will be random so Kermit applies a 500 milliseconds delay to the new page loading to leave enough time for the tracking request to be sent out. This delay does not apply to any other interaction and this ensures more accurate analytics data. The delay duration can also be edited in the config section.
 
+Supporting multiple attributes and lookups - added Sep 29th 2016:
+-----------------------------------------------------------------
+
+Adding a single attribute for a description is very limited. In many occasions the interaction can be described by several different attributes. Kermit now supports a couple of new custom HTML5 attributes:
+
+* data-analytics-interaction-description
+* _data-analytics-interaction-key (new)_
+* _data-analytics-interaction-attribute-* (new)_
+
+You can also rename these attributes in the config section. Basically the key attribute will be done to do a lookup and attach one or several data points to the tracking request to describe the interaction such as the site section, whether the visitor was logged in etc. The lookup data can be either stored internally inside the Kermit library file in _kermit.config.maps_ in the form of an object containing key-value pairs. The name of the object should match the value you have used for your key attribute on the HTML element. Kermit will then replace in the tracking request the key attribute on the HTML element with the data linked to that key.
+
+Kermit now also supports a second type of lookup where the lookup data is stored in an external Javascript file. The external lookup data file paths are defined in the _kermit.config.dependencies_ array.
+
+Now Kermit also supports additional attributes on the HTML tag itself just like the _data-analytics-interaction-description_ atribute. You can add more data points simply by adding _data-analytics-interaction-attribute-*_ where you replace * with the suffix of your choice. The values of these parameters will be passed along your tracking request.
+
+You can use all these methods together. You might use the HTML element description and additional attributes to describe unique attributes of a given interaction and an external file lookup for description attributes shared across interactions happening on different pages.
+
+Although untested at this stage you should also be able to leverage the lookup key inside GTM. By default Kermit calls GA directly but you can also change this in the config section by setting _forceGTM_ to _true_ and _forceGA_ to _false_. When you do this Kermit will use the _dataLayer.push()_ function instead of the _ga("send", fieldsObject)_ command.
+
+
 Configuring Kermit:
 -------------------
 
@@ -69,6 +89,15 @@ _blur_ category
 * input[url]
 * input[week]
 * textarea
+
+added Sep 29th 2016:
+
+You can now also rename the following HTML attributes:
+
+* _data-analytics-interaction-key (new)_
+* _data-analytics-interaction-attribute-* (new)_
+
+You can also declare lookup data in _kermit.config.maps_ and list external lookup data files in _kermit.config.maps.dependencies_. These lookup files are JSONP files, structured Javascript data passed as the parameter of a call to a new function called _kermit.utils.processJSONP()_.
 
 Controlling the number of server calls:
 ---------------------------------------
