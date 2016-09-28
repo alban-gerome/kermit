@@ -50,79 +50,7 @@ var kermit = {
         document.location.href = href;
       }, kermit.config.delayBeforeNewPage);
     },
-    adobe:{//retest me
-      getLinkType:function(element){
-        var a, b, c, s, result = null;
-        s = window[kermit.utils.adobe.rootObject];
-        if(element.hasAttribute("href")){
-          a = kermit.utils.getAbsoluteURL(element.getAttribute("href"));
-          if(s.linkDownloadFileTypes){
-            b = a.match(/\.([^.#?/]*)/gi);
-            if(!b) return null;
-            b = b.reverse()[0].substr(1);
-            c = s.linkDownloadFileTypes.match(new RegExp(b ,"i"));
-          };
-          if(result=="" && s.linkInternalFilters){
-            b = a.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?([^:\/\n]+)/i)[1];
-            c = s.linkInternalFilters.match(new RegExp(b, "i"));
-            if(!c) result = "e";
-          };
-        }else{
-          result = "o";
-        };
-        return result;
-      },
-      getLinkTrackEvents:function(attributesObject){
-        var a = [], b;
-        for(b in attributesObject) if(b=="events") a.push(attributesObject[b]);
-        return a.join(",")=="" ? "None" : a.join(",");
-      },
-      getLinkTrackVars:function(element, attributesObject){
-        var a = ["pageName", "channel"], b;
-        var c = kermit.config.interactionDescSelector.replace(/\[|\]/g,"");
-        var d = kermit.config.interactionKeySelector.replace(/\[|\]/g,"");
-        if(element.hasAttribute(c)) a.push["contextData.interactionDescription"];
-        if(element.hasAttribute(d)) a.push["contextData.interactionLookupKey"];
-        for(b in attributesObject) if(b.match(/^((prop|eVar|hier|list)\d+|events)$/)){
-          a.push(b);
-        }else{
-          a.push(["contextData",b].join("."));
-        };
-        return a.join(",").replace(/(event\d+,?)+/gi,"events,").replace(/,$/,"");
-      },
-      getOverrides:function(attributesObject){
-        var a = {}, b;
-        for(b in attributesObject) if(b.match(/^((prop|eVar|hier|list)\d+|events)$/)){
-          a[b]                           = attributesObject[b];
-        }else{
-          a[["contextData",b].join(".")] = attributesObject[b];
-        }
-        return a;
-      },
-      trackElement:function(element, attributesObject){
-        var s             = window[kermit.utils.adobe.rootObject];
-        var h             = !!kermit.utils.getEventType(element).match(/^\w+\[href\]|input\[submit\]$/);
-        console.log([
-          attributesObject,
-          kermit.utils.adobe.getLinkTrackVars(element, attributesObject),
-          kermit.utils.adobe.getLinkTrackEvents(attributesObject),
-          attributesObject.interactionDescription,
-          kermit.utils.adobe.getOverrides(attributesObject)
-        ]);
-        /*
-        s.linkTrackVars   = kermit.utils.adobe.getLinkTrackVars(attributesObject);
-        s.linkTrackEvents = kermit.utils.adobe.getLinkTrackEvents(attributesObject);
-        s.tl(
-          h ? element : !h,
-          kermit.utils.adobe.getLinkType(element),
-          attributesObject.interactionDescription,
-          kermit.utils.adobe.getOverrides(attributesObject)
-        );
-        */
-      },
-      rootObject:"s"
-    },
-    google:{//retest me
+    google:{
       trackElement:function(element, attributesObject){
         var h          = !!kermit.utils.getEventType(element).match(/^\w+\[href\]|input\[submit\]$/);
         var mustUseGTM = (
@@ -148,15 +76,13 @@ var kermit = {
         for(var i in attributesObject) fieldsObject[i]                   = attributesObject[i];
         if(mustUseGTM){
                                        fieldsObject.event                = "interaction";
-          console.log("gtm", fieldsObject);
-          //dataLayer.push(fieldsObject);
+          dataLayer.push(fieldsObject);
         }else{
           if(h && typeof navigator.sendBeacon=="function"){            
                                        fieldsObject.transport            = "beacon";
                                        fieldsObject.hitCallback          = function(){document.location = element.href}//needed?
           };
-          console.log("ga", fieldsObject);
-          //ga("send", "event", fieldsObject);
+          ga("send", "event", fieldsObject);
         };
       }
     }
@@ -356,8 +282,7 @@ var kermit = {
                   ].join(" - ");
                 };
                 */
-                kermit.utils.adobe.trackElement(element, attributesObject);
-                //kermit.utils.google.trackElement(element, attributesObject);
+                kermit.utils.google.trackElement(element, attributesObject);
               });
             };
           }
