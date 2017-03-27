@@ -29,11 +29,11 @@ Beavis and page views:
 
 If you want to track a page view using Kermit here's an example to refresh your memory:
 
-    <div _data-analytics-pageview-description="homepage"_></div>
+    <div data-analytics-pageview-description="homepage"></div>
 
 If you have a large number of pages you will need a naming convention which may lead to a lot of back and forth discussions between different stakeholders and take time. With Beavis you can get a temporary value for the page view description. Just change the code example above to this:
 
-    <div _data-analytics-pageview-description_></div>
+    <div data-analytics-pageview-description></div>
 
 Now you can move on with this Kermit tagging project and when the naming convention has been agreed upon you can pass a page view description to your tags.
 
