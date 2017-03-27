@@ -362,29 +362,7 @@ var kermit = {
         "a[href]"                  : "click",  "area[href]"    : "click",
 
         "select"                   : "change", "input[radio]"  : "change"
-      },
-      "multipleInternalClick-aaa"  : {prop1:"aaa prop1", prop2:"aaa prop2"},
-      "multipleInternalClick-bbb"  : {prop1:"bbb prop1", prop2:"bbb prop2"},
-      "multipleInternalClick-ccc"  : {prop1:"ccc prop1", prop2:"ccc prop2"},
-      "multipleInternalClick-ddd"  : {prop1:"ddd prop1", prop2:"ddd prop2"},
-      "multipleInternalChange-eee" : {prop1:"eee prop1", prop2:"eee prop2", eVar1:"eee eVar1", events:"event1"},
-      "multipleInternalChange-hhh" : {prop1:"hhh prop1", prop2:"hhh prop2"},
-      "multipleInternalChange-iii" : {prop1:"iii prop1", prop2:"iii prop2"},
-      "multipleInternalChange-jjj" : {prop1:"jjj prop1", prop2:"jjj prop2"},
-      "multipleInternalBlur-kkk"   : {prop1:"kkk prop1", prop2:"kkk prop2"},
-      "multipleInternalBlur-lll"   : {prop1:"lll prop1", prop2:"lll prop2"},
-      "mixMatchClick-aaa"          : {prop1:"aaa prop1", prop2:"aaa prop2"},
-      "mixMatchClick-bbb"          : {prop1:"bbb prop1", prop2:"bbb prop2"},
-      "mixMatchClick-ccc"          : {prop1:"ccc prop1", prop2:"ccc prop2"},
-      "mixMatchClick-ddd"          : {prop1:"ddd prop1", prop2:"ddd prop2"},
-      "mixMatchChange-eee"         : {prop1:"eee prop1", prop2:"eee prop2"},
-      "mixMatchChange-hhh"         : {prop1:"hhh prop1", prop2:"hhh prop2"},
-      "mixMatchChange-hhh"         : {prop1:"hhh prop1", prop2:"hhh prop2"},
-      "mixMatchChange-iii"         : {prop1:"iii prop1", prop2:"iii prop2", list3:"iii list3", eVar1:"iii eVar1", events:"event1"},
-      "mixMatchChange-iii"         : {prop1:"iii prop1", prop2:"iii prop2", list3:"iii list3", eVar1:"iii eVar1", events:"event1"},
-      "mixMatchChange-jjj"         : {prop1:"jjj prop1", prop2:"jjj prop2", list3:"jjj list3", eVar1:"jjj eVar1", events:"event1"},
-      "mixMatchBlur-kkk"           : {prop1:"kkk prop1", prop2:"kkk prop2", list3:"kkk list3", eVar1:"kkk eVar1", events:"event1"},
-      "mixMatchBlur-lll"           : {prop1:"lll prop1", prop2:"lll prop2"}
+      }
     },
     dependencies:[
       "../kermit/include.js",
