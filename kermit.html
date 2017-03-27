@@ -4,7 +4,11 @@
     <title>Kermit test page</title>
     <link rel="stylesheet" href="kermit.css" />
   </head>
-  <body>
+  <body
+    data-analytics-pageview-key="pageviewKey"
+    data-analytics-pageview-attribute-prop10="aaa"
+    data-analytics-pageview-attribute-prop20="bbb"
+  >
     <section id="top"></section>
     <h1>Kermit test page</h1>
     <section>
@@ -65,11 +69,18 @@
         <table class="tests"">
           <tr>
       	    <td>Link</td>
-      	    <td><a href="javascript:void(0)" data-analytics-interaction-description="singleClick-aaa">Link</a></td>
+      	    <td><a href="javascript:void(0)"
+              data-analytics-interaction-description="singleClick-aaa"
+              data-analytics-interaction-attribute-prop1="prop10"
+              data-analytics-interaction-attribute-prop2="prop20"
+              data-analytics-interaction-attribute-prop3="prop30"
+              data-analytics-interaction-key="interactionKey"
+              data-analytics-interaction-event="click"
+            >Link</a></td>
           </tr>
           <tr>
       	    <td>Button tag</td>
-      	    <td><button data-analytics-interaction-description="singleClick-bbb">A</button></td>
+      	    <td><button data-analytics-interaction-description="singleClick-bbb">B</button></td>
           </tr>
           <tr>
             <td>Input button tag</td>
