@@ -24,7 +24,7 @@ Kermit leverages HTML5 _data-_ attributes to describe your page views and intera
 
 Page view example:
 
-    <div _data-analytics-pageview-description="homepage"_></div>
+    <div data-analytics-pageview-description="homepage"></div>
 
 This will produce the following JSON:
 
@@ -36,16 +36,16 @@ This will produce the following JSON:
 
 Now if you need to check your page view tagging, open your browser devtools and your Javascript console. The following code will you show you the _div_ element describing your page view:
 
-    document.querySelector([data-analytics-page-description]);
+    document.querySelector("[data-analytics-page-description]");
 
 If you use jQuery you can use the code above or the following:
 
-    $([data-analytics-page-description]);
+    $("[data-analytics-page-description]");
 
 
 Now let's have a look at the interaction example:
 
-    <input value="B" type="button" _data-analytics-interaction-description="Button XYZ was clicked"_ />
+    <input value="B" type="button" data-analytics-interaction-description="Button XYZ was clicked" />
 
 This will produce the following JSON:
 
@@ -66,7 +66,7 @@ Event tracking:
 
 Browsers implement these differently but Kermit handles these using cross-browser Javascript. Let's revisit our interaction example above:
 
-    <input value="B" type="button" _data-analytics-interaction-description="Button XYZ was clicked"_ />
+    <input value="B" type="button" data-analytics-interaction-description="Button XYZ was clicked" />
 
 Kermit does need to know that clicks are what you need to measure. If this is a button it will infer that clicks is what you are after by default. If the element was drop-down menu or a text field the click event is not relevant there. Kermit will infer these Javascript events based on the HTML tag:
 
@@ -131,13 +131,13 @@ Custom interaction and page view tags:
 
 Most web analytics implementations require detailed descriptions of a page view or an interaction rather than just a few words. You will often need to group these into categories. Kermit supports wild card tags:
 
-    _data-analytics-interaction-attribute-*_
-    _data-analytics-pageview-attribute-*_
+    data-analytics-interaction-attribute-*
+    data-analytics-pageview-attribute-*
 
 Examples:
 
-    _data-analytics-interaction-attribute-prop1_
-    _data-analytics-pageview-attribute-channel_
+    data-analytics-interaction-attribute-prop1
+    data-analytics-pageview-attribute-channel
 
 
 Controlling the number of server calls:
