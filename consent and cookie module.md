@@ -23,7 +23,7 @@ Cookie.js:
 
 * _write_
 * _read_
-* delete_
+* _delete_
 * _update_
 * _touch_ - postpones the expiry date of the cookie based on the current date
 
