@@ -68,7 +68,7 @@ Browsers implement these differently but Kermit handles these using cross-browse
 
     <input value="B" type="button" data-analytics-interaction-description="Button XYZ was clicked" />
 
-Kermit does need to know that clicks are what you need to measure. If this is a button it will infer that clicks is what you are after by default. If the element was drop-down menu or a text field the click event is not relevant there. Kermit will infer these Javascript events based on the HTML tag:
+Kermit does not need to know that clicks are what you need to measure. If this is a button it will infer that clicks is what you are after by default. If the element was drop-down menu or a text field the click event is not relevant there. Kermit will infer these Javascript events based on the HTML tag:
 
  * _click_ - buttons (not radio buttons), links and checkboxes
  * _changes_ - drop-downs and radio buttons
