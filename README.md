@@ -68,13 +68,13 @@ Browsers implement these differently but Kermit handles these using cross-browse
 
     <input value="B" type="button" data-analytics-interaction-description="Button XYZ was clicked" />
 
-Kermit does not need to know that clicks are what you need to measure. If this is a button it will infer that clicks is what you are after by default. If the element was drop-down menu or a text field the click event is not relevant there. Kermit will infer these Javascript events based on the HTML tag:
+Kermit does not need to know that clicks are what you need to measure. If this is a button it will infer that clicks is what you are after by default. If the element was a drop-down menu or a text field the click event is not relevant there. Kermit will infer these Javascript events based on the HTML tag:
 
  * _click_ - buttons (not radio buttons), links and checkboxes
  * _changes_ - drop-downs and radio buttons
  * _blur_ - input text fields (all variants thereof) and textarea
 
-The _click_ event fires on drop-down menus but once when you open the menu and each time you select an item in the menu. The _blur_ event only fires when the element was interacted with and the interaction has finished. Tracking every key pressed in a text field is overkill, knowing that the element was interacted with is sufficient. A text field interacted with but left blank is still an interaction, perhaps an indicator that the field label contains confusing copy which is actionable insight.
+The _click_ event fires on drop-down menus but once when you open the menu and each time you select an item in the menu. The _blur_ event only fires when the element was interacted with and the interaction has finished. Tracking every key pressed in a text field is overkill, knowing that the element was interacted with is sufficient. A text field interacted with but left blank is still an interaction, perhaps suggesting that the field label contains confusing copy which is actionable insight.
 
  You might have specific reasons to override the default event or capture a different event. Let's introduce a new Kermit tag:
 
@@ -92,7 +92,7 @@ Page views tracking:
 
 Kermit recognises two types of page views. Some page views will be the result of a full page load. Some websites optimise the user experience by treating every following page view as a page update of the previous page. Most pages will contain the same header with the brand logo, internal search and navigation and legal, privacy and terms and conditions links in the footer. Loading this common content only once seems like a smart thing to do. These are commonly referred to as _single page applications_ or _SPAs_.
 
-With some single page applications the back button will even work as if a full page load happened, the URL might change or not. The _hashchange_ Javascript event might work on your website. You might support the back button using _history.pushState()_ but neither of these are generic enough to recognise a page view. Kermit leverages _document object model mutations_, aka _DOM mutations_ instead. Support for DOM mutations is here again browser-specific like event tracking covered above. On browsers not supporting DOM mutations natively Kermit emulates this support. If the content change contains a _data-analytics-page-description_ tag is found with a new value Kermit treats this as a new page view.
+With some single page applications the back button will even work as if a full page load happened, the URL might change or not. The _hashchange_ Javascript event might work on your website. You might support the back button using _history.pushState()_ but neither of these are generic enough to recognise a page view. Kermit leverages _document object model mutations_, aka _DOM mutations_ instead. Support for DOM mutations is, here again, browser-specific like event tracking covered above. On browsers not supporting DOM mutations natively Kermit emulates this support. If the content change contains a _data-analytics-page-description_ tag with a new value Kermit treats this as a new page view.
 
 Regardless of whether your website uses only full page loads or a SPA if you have tagged the page using the _data-analytics-pageview-description_ tag Kermit will treat this as a page view. If the value of that tag changes Kermit will treat this as a new page view, period.
 
@@ -100,7 +100,7 @@ Regardless of whether your website uses only full page loads or a SPA if you hav
 Extensible and modular architecture:
 ------------------------------------
 
-A single library trying to support every requirement would be a huge file even after minifaction and could impact your page load performance. Page render speed is measured by search engines and slow websites rank lower. For this reason Kermit is built around a core file augmented by modules. You use only the modules you need and keep Kermit small. A Kermit module should also not require the Kermit core code to change. Rewriting functions of the Kermit core also means that the original functions in the core are dead code which was loaded for nothing. The module is responsible for working with the core and not the other way around. The Kermit core configuration section excepted the core should not change or only very rarely.
+A single library trying to support every requirement would be a huge file even after minifaction and could impact your page load performance. Page render speed is measured by search engines and slow websites are penalised with a lower ranking than they otherwise would have. For this reason Kermit is built around a core file augmented by modules. You use only the modules you need and keep Kermit small. A Kermit module should also not require the Kermit core code to change. Rewriting functions of the Kermit core also means that the original functions in the core are dead code which was loaded for nothing. The module is responsible for working with the core and not the other way around. The Kermit core configuration section excepted the core should not change or only very rarely.
 
 One important point to keep in mind is that Kermit wraps all functionality inside a single _kermit_ Javascript object which acts like a namespace and wrapper for all the Kermit core and modules code. Basically Kermit leverages the Kermit singleton pattern which limits any strange and hard to find bugs with the pre-existing code on your website to a minimum.
 
@@ -143,7 +143,7 @@ Examples:
 Controlling the number of server calls:
 ---------------------------------------
 
-Some of you might want to use Kermit with an entreprise web analytics solution. Each time a tracking request is triggered a server call is generated and this incurs a cost. To be more precise this cost is deducted from a monthly server calls allowance. The business owners fearing that a key interaction would not be tracked tend to require all page element interactions to be tracked. Kermit would certainly make this easier than ever before but be prepared to discuss your server calls allowance with your web analytics provider sooner rather than later.
+Some of you might want to use Kermit with an entreprise web analytics solution. Each time a tracking request is triggered a server call is generated and this incurs a cost. To be more precise this cost is deducted from a monthly server calls allowance. The business owners fearing that a key interaction would not be tracked tend to require all page element interactions to be tracked. Kermit would certainly make this easier than ever before but be prepared to discuss your server calls allowance with your web analytics provider and your finance department sooner rather than later.
 
 I recommend keeping track the number of page element interactions tracked on each page. You could use a page view attribute such as a _s.prop_ if you use Adobe Analytics. Examples:
 
@@ -185,7 +185,7 @@ Core tags reference:
 
 
 Core internal events reference:
---------------------------------------
+-------------------------------
 
 Kermit leverages custom Javascript events. When the Kermit tags have reached key stages of processing certain events will be fired to control when certain functions can start executing, including functions declared in modules or when all modules have done their work and the core functions should take over.
 
