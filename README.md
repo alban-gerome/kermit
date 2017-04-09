@@ -52,7 +52,7 @@ This will produce the following JSON:
     {
       interactionAttributes : {
         description : "Button XYZ was clicked"
-    },
+      },
       pageViewAttributes : {
         description : "homepage"
       }
