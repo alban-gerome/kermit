@@ -1,8 +1,25 @@
 Kermit v.0.8 core
 =================
 
-Introduction:
--------------
+Table of contents:
+------------------
+* [Introduction](#Introduction)
+* [Examples](#Examples)
+* [Event tracking](#Event-tracking)
+* [Page views tracking](#Page-views-tracking)
+* [Extensible and modular architecture](#Extensible-and-modular)
+* [Configuring Kermit core](#Configuring-Kermit-core)
+* [Custom interaction and page view tags](#Custom-interaction-and-page-view-tags)
+* [Controlling the number of server calls](#Controlling-the-number-of-server-calls)
+* [Core tags reference](#Core-tags-reference)
+* [Core internal events reference](#Core-internal-events-reference)
+* [Core default tag-event mappings reference](#Core-default-tag-event-mappings-reference)
+* [Core public methods reference](#Core-public-methods-reference)
+* [Core properties reference](#Core-properties-reference)
+* [Links](#Links)
+
+<a id="Introduction"></a>Introduction:
+--------------------------------------
 
 There are several types of tracking requirements, two of which are page views and interactions with elements on the page such as button clicks. Other types of tracking requirements will be related to e-commerce transactions, such as adding items to a shopping basket. At the time of writing this markdown file Kermit is a client-side Javascript to support page views and interactions only.
 
@@ -17,8 +34,8 @@ Another frequent issue is the sudden loss of analytics reporting after the devel
 In a nutshell Kermit will help you prepare, maintain your analytics implementation, get more accurate data, catch potential reporting outages earlier and stay compliant with the cookie legislation. With better data and longer stretches of data collection without outages your web analysts can be more confident with their actionable insight. When actionable insight contradicts the understanding the management has of the business belief persistence often leads the management to question the methodology of the data analysis but also how the data was collected, i.e. the tagging itself.
 
 
-Examples:
----------
+<a id="Examples"></a>Examples:
+------------------------------
 
 Kermit leverages HTML5 _data-_ attributes to describe your page views and interactions. It will generate a JSON object which you will be able to use with your web analytics tool. At the time of writing the Kermit modules for Google Analytics and Adobe Analytics are in development. The Google Analytics and GTM module will be open source. The Adobe Analytics and DTM module will not be open source though.
 
@@ -61,8 +78,8 @@ This will produce the following JSON:
 Now checking the description of your interaction is ridiculously simple: inspect the element. Notice how the interaction JSON contains the page view description. Imagine having a call to action button on several pages. You have a requirement for a report to break down the clicks by page. Use a unique interaction description and break them down by the page description.
 
 
-Event tracking:
----------------
+<a id="Event-tracking"></a>Event tracking:
+------------------------------------------
 
 Browsers implement these differently but Kermit handles these using cross-browser Javascript. Let's revisit our interaction example above:
 
@@ -87,8 +104,8 @@ Example:
 The supported values are any Javascript-supported events.
 
 
-Page views tracking:
---------------------
+<a id="Page-views-tracking"></a>Page views tracking:
+----------------------------------------------------
 
 Kermit recognises two types of page views. Some page views will be the result of a full page load. Some websites optimise the user experience by treating every following page view as a page update of the previous page. Most pages will contain the same header with the brand logo, internal search and navigation and legal, privacy and terms and conditions links in the footer. Loading this common content only once seems like a smart thing to do. These are commonly referred to as _single page applications_ or _SPAs_.
 
@@ -97,8 +114,8 @@ With some single page applications the back button will even work as if a full p
 Regardless of whether your website uses only full page loads or a SPA if you have tagged the page using the _data-analytics-pageview-description_ tag Kermit will treat this as a page view. If the value of that tag changes Kermit will treat this as a new page view, period.
 
 
-Extensible and modular architecture:
-------------------------------------
+<a id="Extensible-and-modular"></a>Extensible and modular architecture:
+------------------------------------------------------------------------------------
 
 A single library trying to support every requirement would be a huge file even after minifaction and could impact your page load performance. Page render speed is measured by search engines and slow websites are penalised with a lower ranking than they otherwise would have. For this reason Kermit is built around a core file augmented by modules. You use only the modules you need and keep Kermit small. A Kermit module should also not require the Kermit core code to change. Rewriting functions of the Kermit core also means that the original functions in the core are dead code which was loaded for nothing. The module is responsible for working with the core and not the other way around. The Kermit core configuration section excepted the core should not change or only very rarely.
 
@@ -107,8 +124,8 @@ One important point to keep in mind is that Kermit wraps all functionality insid
 Kermit also provides another way to create your own Kermit tags. Kermit core can also be configured to support future HTML tags and declare which Javascript will be triggered by default when interacted with. This will be covered further below.
 
 
-Configuring Kermit core
------------------------
+<a id="Configuring-Kermit-core"></a>Configuring Kermit core
+-----------------------------------------------------------
 
 The Kermit core configuration section acts as a repository of settings that you or Kermit modules can change or add in the core. The configuration section is declared under the _kermit.config_ object. 
 
@@ -126,8 +143,8 @@ Kermit also supports lookup tables declared in _kermit.config.maps_. These can m
 The configuration also contains a list of modules to load as dependencies. Instead of using lookup tables in the config section you can create them as a separate module. These modules are declared in _kermit.config.dependencies_.
 
 
-Custom interaction and page view tags:
---------------------------------------
+<a id="Custom-interaction-and-page-view-tags"></a>Custom interaction and page view tags:
+----------------------------------------------------------------------------------------
 
 Most web analytics implementations require detailed descriptions of a page view or an interaction rather than just a few words. You will often need to group these into categories. Kermit supports wild card tags:
 
@@ -140,8 +157,8 @@ Examples:
     data-analytics-pageview-attribute-channel
 
 
-Controlling the number of server calls:
----------------------------------------
+<a id="Controlling-the-number-of-server-calls"></a>Controlling the number of server calls:
+------------------------------------------------------------------------------------------
 
 Some of you might want to use Kermit with an entreprise web analytics solution. Each time a tracking request is triggered a server call is generated and this incurs a cost. To be more precise this cost is deducted from a monthly server calls allowance. The business owners fearing that a key interaction would not be tracked tend to require all page element interactions to be tracked. Kermit would certainly make this easier than ever before but be prepared to discuss your server calls allowance with your web analytics provider and your finance department sooner rather than later.
 
@@ -171,8 +188,8 @@ You can then create a page report, i.e each row will represent a page, with this
 Of course a better plan would be to require a review of which page element interactions represent a key interaction and using Kermit only on these elements. In a nutshell Kermit might not need a web analytics implementation expert but a web analyst is still required to keep your volume of server calls down.
 
 
-Core tags reference:
---------------------
+<a id="Core-tags-reference"></a>Core tags reference:
+----------------------------------------------------
 
 * data-analytics-interaction-description : short text description of the interaction
 * data-analytics-interaction-key : lookup key, the lookup table can be declared in the configuration section or an external module
@@ -184,8 +201,8 @@ Core tags reference:
 * data-analytics-pageview-attribute-* : custom page view attribute
 
 
-Core internal events reference:
--------------------------------
+<a id="Core-internal-events-reference"></a>Core internal events reference:
+--------------------------------------------------------------------------
 
 Kermit leverages custom Javascript events. When the Kermit tags have reached key stages of processing certain events will be fired to control when certain functions can start executing, including functions declared in modules or when all modules have done their work and the core functions should take over.
 
@@ -200,8 +217,8 @@ Kermit leverages custom Javascript events. When the Kermit tags have reached key
 * kermit-after-interaction : the interaction JSON has been passed on to the web analytics module(s)
 
 
-Core default tag-event mappings reference:
-------------------------------------------
+<a id="Core-default-tag-event-mappings-reference"></a>Core default tag-event mappings reference:
+------------------------------------------------------------------------------------------------
 
 Kermit supports three Javascript events, _click_, _change_ and _blur_. When the following HTML5 elements have been tagged with a Kermit interaction tag one of these three events will be automatically attached to the element. You can override this with _data-analytics-interaction-event_.
 
@@ -235,8 +252,8 @@ _blur_ category
 * textarea
 
 
-Core public methods reference:
-------------------------------
+<a id="Core-public-methods-reference"></a>Core public methods reference:
+------------------------------------------------------------------------
 
 * kermit.utils.addListener : cross-browser event handler
 * kermit.utils.getAbsoluteURL : convert a relative URL into an absolute URL
@@ -260,8 +277,8 @@ Core public methods reference:
 * kermit.init : starts Kermit
 
 
-Core properties reference:
---------------------------
+<a id="Core-properties-reference"></a>Core properties reference:
+----------------------------------------------------------------
 
 * kermit.utils.getAttributes.pageViewProperties : stores the page views data to be used later inside in an interaction JSON
 * kermit.utils.getAttributes.interactionProperties : stores interaction data for to be used later
@@ -283,8 +300,8 @@ Core properties reference:
 * kermit.config.dependencies : list of modules to be loaded
 
 
-Links:
-------
+<a id="Links"></a>Links:
+------------------------
 
 * http://www.albangerome.com/kermit/demo.php -  uses AngularJS 1.x
 * http://www.albangerome.com/kermit/demo2.php - relies on CSS to update the page
