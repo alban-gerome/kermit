@@ -1,8 +1,8 @@
 Kermit v.0.8 core
 =================
 
-Table of contents:
-------------------
+<a id="Table-of-contents"></a>Table of contents:
+------------------------------------------------
 * [Introduction](#Introduction)
 * [Examples](#Examples)
 * [Event tracking](#Event-tracking)
@@ -32,6 +32,7 @@ If you are based in Europe like me you may only collect web analytics data from 
 Another frequent issue is the sudden loss of analytics reporting after the developers made code changes. The point made above about better visibility of whether the tag will fire or not will help but Kermit can do more to address these. Kermit collects all Kermit tags on a given page and generates a fixed-length verification code. This also requires a separate module. If the source code of a given page changes by even as little as a space added or removed this verification code will change. If you run automated tests this verification code will no longer match the expected verification code and the Kermit tagging has to be reviewed before going live.
 
 In a nutshell Kermit will help you prepare, maintain your analytics implementation, get more accurate data, catch potential reporting outages earlier and stay compliant with the cookie legislation. With better data and longer stretches of data collection without outages your web analysts can be more confident with their actionable insight. When actionable insight contradicts the understanding the management has of the business belief persistence often leads the management to question the methodology of the data analysis but also how the data was collected, i.e. the tagging itself.
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Examples"></a>Examples:
@@ -76,6 +77,7 @@ This will produce the following JSON:
     }
 
 Now checking the description of your interaction is ridiculously simple: inspect the element. Notice how the interaction JSON contains the page view description. Imagine having a call to action button on several pages. You have a requirement for a report to break down the clicks by page. Use a unique interaction description and break them down by the page description.
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Event-tracking"></a>Event tracking:
@@ -102,6 +104,7 @@ Example:
     data-analytics-interaction-event="keypress"
 
 The supported values are any Javascript-supported events.
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Page-views-tracking"></a>Page views tracking:
@@ -112,6 +115,7 @@ Kermit recognises two types of page views. Some page views will be the result of
 With some single page applications the back button will even work as if a full page load happened, the URL might change or not. The _hashchange_ Javascript event might work on your website. You might support the back button using _history.pushState()_ but neither of these are generic enough to recognise a page view. Kermit leverages _document object model mutations_, aka _DOM mutations_ instead. Support for DOM mutations is, here again, browser-specific like event tracking covered above. On browsers not supporting DOM mutations natively Kermit emulates this support. If the content change contains a _data-analytics-page-description_ tag with a new value Kermit treats this as a new page view.
 
 Regardless of whether your website uses only full page loads or a SPA if you have tagged the page using the _data-analytics-pageview-description_ tag Kermit will treat this as a page view. If the value of that tag changes Kermit will treat this as a new page view, period.
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Extensible-and-modular"></a>Extensible and modular architecture:
@@ -122,6 +126,7 @@ A single library trying to support every requirement would be a huge file even a
 One important point to keep in mind is that Kermit wraps all functionality inside a single _kermit_ Javascript object which acts like a namespace and wrapper for all the Kermit core and modules code. Basically Kermit leverages the Kermit singleton pattern which limits any strange and hard to find bugs with the pre-existing code on your website to a minimum.
 
 Kermit also provides another way to create your own Kermit tags. Kermit core can also be configured to support future HTML tags and declare which Javascript will be triggered by default when interacted with. This will be covered further below.
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Configuring-Kermit-core"></a>Configuring Kermit core
@@ -141,6 +146,7 @@ Kermit also supports lookup tables declared in _kermit.config.maps_. These can m
 * data-analytics-interaction-key
 
 The configuration also contains a list of modules to load as dependencies. Instead of using lookup tables in the config section you can create them as a separate module. These modules are declared in _kermit.config.dependencies_.
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Custom-interaction-and-page-view-tags"></a>Custom interaction and page view tags:
@@ -155,6 +161,8 @@ Examples:
 
     data-analytics-interaction-attribute-prop1
     data-analytics-pageview-attribute-channel
+    
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Controlling-the-number-of-server-calls"></a>Controlling the number of server calls:
@@ -186,6 +194,7 @@ number of page elements using Kermit / number of page views
 You can then create a page report, i.e each row will represent a page, with this custom metric. By ranking that report by the custom metric in descending order the pages at the top of the report will be pages with traffic and a large number of page element interactions tracked. Your next course of action is to review these page element interactions and remove the Kermit HTML attribute from page elements without business value.
 
 Of course a better plan would be to require a review of which page element interactions represent a key interaction and using Kermit only on these elements. In a nutshell Kermit might not need a web analytics implementation expert but a web analyst is still required to keep your volume of server calls down.
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Core-tags-reference"></a>Core tags reference:
@@ -199,6 +208,7 @@ Of course a better plan would be to require a review of which page element inter
 * data-analytics-pageview-description : short text description of the page view
 * data-analytics-pageview-key : lookup key, the lookup table can be declared in the configuration section or an external module
 * data-analytics-pageview-attribute-* : custom page view attribute
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Core-internal-events-reference"></a>Core internal events reference:
@@ -215,6 +225,7 @@ Kermit leverages custom Javascript events. When the Kermit tags have reached key
 * kermit-interaction-ready : the interactions are about to be tracked
 * kermit-before-interaction : the interaction JSON has been processed and is about to be passed on to the web analytics module(s)
 * kermit-after-interaction : the interaction JSON has been passed on to the web analytics module(s)
+[Back to the table of contents](#Table-of-contents)
 
 
 <a id="Core-default-tag-event-mappings-reference"></a>Core default tag-event mappings reference:
@@ -251,6 +262,8 @@ _blur_ category
 * input[week]
 * textarea
 
+[Back to the table of contents](#Table-of-contents)
+
 
 <a id="Core-public-methods-reference"></a>Core public methods reference:
 ------------------------------------------------------------------------
@@ -276,6 +289,8 @@ _blur_ category
 * kermit.handleInteractions : initiates the interactions tracking
 * kermit.init : starts Kermit
 
+[Back to the table of contents](#Table-of-contents)
+
 
 <a id="Core-properties-reference"></a>Core properties reference:
 ----------------------------------------------------------------
@@ -299,6 +314,8 @@ _blur_ category
 * kermit.config.maps.* : internal lookup references for interactions and page views
 * kermit.config.dependencies : list of modules to be loaded
 
+[Back to the table of contents](#Table-of-contents)
+
 
 <a id="Links"></a>Links:
 ------------------------
@@ -306,8 +323,10 @@ _blur_ category
 * http://www.albangerome.com/kermit/demo.php -  uses AngularJS 1.x
 * http://www.albangerome.com/kermit/demo2.php - relies on CSS to update the page
 
+[Back to the table of contents](#Table-of-contents)
+
 
 Alban Gérôme
 27 Mar 2017
 
-Follow me on Twitter: @albangerome
+Follow me on Twitter: <a href="https://twitter.com/albangerome?lang=en-gb" title="Follow Alban Gérôme on  Twitter">@albangerome</a>
