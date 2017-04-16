@@ -1,7 +1,6 @@
 Beavis.js and md5.js
 ====================
-Updated 16 Apr 2017
-Latest versions: beavis.0.3.js and md5.0.2.js
+Updated 16 Apr 2017, latest versions: beavis.0.3.js and md5.0.2.js
 
 Introduction:
 -------------
@@ -135,4 +134,4 @@ All methods starting with _get_ are now grouped under _kermit.utils.get_. For ex
 Alban Gérôme
 16 Apr 2017
 
-Follow me on Twitter: @albangerome
+Follow me on Twitter: <a href="https://twitter.com/albangerome?lang=en-gb" title="Follow Alban Gérôme on  Twitter">@albangerome</a>
