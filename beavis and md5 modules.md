@@ -92,12 +92,12 @@ Beavis.js and md5.js properties:
 * kermit.utils.get.checkSum : calculate the verification code for the visible elements in the HTML body
 
 
-Added in Beavis v0.2:
+Added in Beavis v0.3:
 ---------------------
 
-* kermit.utils.getOuterMD5 : this will take a DOM element as input and calculate the MD5 hash of the document body inner HTML if the element was missing
+* kermit.utils.get.outerMD5 : this will take a DOM element as input and calculate the MD5 hash of the document body inner HTML if the element was missing
 
-_kermit.utils.getOuterMD5_ is used by 
+_kermit.utils.get.outerMD5_ is used by 
 
 * _pageViewAttributes.description_ when no page description was passed
 * _pageViewAttributes.checksum_
