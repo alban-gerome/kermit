@@ -15,7 +15,7 @@ COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER I
 ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 var kermit = {
-  version:0.8,
+  version:0.8.1,
   utils:{
     addListener:function(obj){
       if(obj==undefined)          return;
@@ -366,7 +366,7 @@ var kermit = {
     },
     dependencies:[
       "../kermit/include.js",
-      "../kermit/beavis.js",
+      "../kermit/beavis.0.2.js",
       "../kermit/google.js",
       "../kermit/consent.js"
     ]
