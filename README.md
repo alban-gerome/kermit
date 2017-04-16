@@ -135,8 +135,8 @@ Kermit also provides another way to create your own Kermit tags. Kermit core can
 [Back to the table of contents](#Table-of-contents)
 
 
-<a id="Configuring-Kermit-core"></a>Configuring Kermit core
------------------------------------------------------------
+<a id="Configuring-Kermit-core"></a>Configuring Kermit core:
+------------------------------------------------------------
 
 The Kermit core configuration section acts as a repository of settings that you or Kermit modules can change or add in the core. The configuration section is declared under the _kermit.config_ object. 
 
