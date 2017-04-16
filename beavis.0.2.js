@@ -70,30 +70,38 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
       a.addListener({
         event    : "kermit-pageview-ready",
         callback : function(){
-          var e;
           [].map.call(
-            e.querySelectorAll(b.pageViewDescription),
+            document.querySelectorAll(b.pageViewDescription),
             function(element){
-              if(!a.isVisible(element)) e = a.getOuterMD5(element);
+              e = (a.isVisible(element)) ? a.getMD5(element.innerHTML) : a.getOuterMD5(element);
+              ["getAttributes"].map(function(c){
+                [
+                  "description",
+                  "checksum"
+                ].map(function(g){
+                  [].map.call(
+                    document.querySelectorAll(b.pageViewDescription),
+                    function(element){
+                      a.register.pageViewProperty({
+                        functionReference : c,
+                        propertyName      : g,
+                        propertyValue     : e
+                      });
+                    }
+                  );
+                });
+              });
             }
           );
-          ["getAttributes"].map(function(c){
-            [
-              "description",
-              "checksum"
-            ].map(function(g){
-              a.register.pageViewProperty({
-                functionReference : c,
-                propertyName      : g,
-                propertyValue     : e
-              });
-            });
-          });
           [].map.call(
             document.querySelectorAll(b.interactionDescription),
             function(element){
-              d = a.getMD5(a.getSelector(element));
-              element.setAttribute("data-analytics-interaction-id", d);  
+              d = [
+                a.getSelector(element),
+                element.dataset.analyticsInteractionId,
+                element.dataset.analyticsInteractionDedupe || ""
+              ].join("");
+              element.setAttribute("data-analytics-interaction-id", a.getMD5(d));
             }
           );
           [
