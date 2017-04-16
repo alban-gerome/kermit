@@ -22,7 +22,7 @@ How to load beavis.js and md5.js?
 Let's have a refresher on how to load a module in Kermit core:
 
     kermit.config.dependencies = [
-      "../kermit/beavis.js",
+      "../kermit/beavis.0.3.js",
       // other modules
     ]
 
