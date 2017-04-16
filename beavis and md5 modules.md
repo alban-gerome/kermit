@@ -104,9 +104,11 @@ The MD5 algorithm can sometimes generate the same hash for two different strings
 
 Hash collisions are rare so before looking into whether you have a collision issue I would check whether a more basic implementation error is the root cause of the implementation issues you may have first. Once you have ruled out these a hash collision may have happened so what should you do?
 
-_Beavis has generated the same page description for 2 pages, bad Beavis! Just give a proper name to these pages using_ data-analytics-pageview-description. _Sorted!_
+Beavis has generated the same page description for 2 pages, bad Beavis! Just give a proper name to these pages using _data-analytics-pageview-description_. Sorted!
 
-Beavis has generated the same interaction description id for 2 DOM elements. Run a breakdown report of the interaction ids by the page descriptions, count how many page descriptions you have for any given interaction id. If that count is greater than 1 for one or more interaction ids you have a hash collision or a couple of them. Beavis v0.2 introduces a new Kermit tag:
+Beavis has generated the same interaction description id for 2 DOM elements.
+
+Run a breakdown report of the interaction ids by the page descriptions, count how many page descriptions you have for any given interaction id. If that count is greater than 1 for one or more interaction ids you have a hash collision or a couple of them. Beavis v0.2 introduces a new Kermit tag:
 
 * data-analytics-interaction-dedupe
 
