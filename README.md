@@ -1,6 +1,6 @@
 Kermit v.0.8.2 core
 ===================
-Updated 16 Apr 2017
+Updated 16 Apr 2017, latest version is kermit.0.8.2.js
 
 <a id="Table-of-contents"></a>Table of contents:
 ------------------------------------------------
