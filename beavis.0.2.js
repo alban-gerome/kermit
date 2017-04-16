@@ -92,7 +92,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
           [].map.call(
             document.querySelectorAll(b.interactionDescription),
             function(element){
-              d = a.getOuterMD5(element);
+              d = a.getMD5(a.getSelector(element));
               element.setAttribute("data-analytics-interaction-id", d);  
             }
           );
