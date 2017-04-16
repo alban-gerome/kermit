@@ -1,5 +1,6 @@
 Consent.js and cookie.js
 ========================
+Updated 16 Apr 2017, latest versions: consent.0.2.js and cookie.js
 
 Introduction:
 -------------
@@ -13,7 +14,7 @@ How to load consent.js and cookie.js?
 Cookies are used for a large variety of cases and not only for cookie consent. For this reason the _cookie.js_ module exists as a stand-alone module. The _consent.js_ module however requires the _cookie.js_ module at all times. When you load the _consent.js_ module in _kermit.config.dependencies_ in Kermit core you do not need to load _cookie.js_. Now let's have a refresher on how to load a module in Kermit core:
 
     kermit.config.dependencies = [
-      "../kermit/consent.js",
+      "../kermit/consent.0.2.js",
       // other modules
     ]
 
@@ -68,6 +69,6 @@ This module expands the _kermit.utils_ object wikth the following methods:
 
 
 Alban Gérôme
-27 Mar 2017
+16 Apr 2017
 
-Follow me on Twitter: @albangerome
+Follow me on Twitter: <a href="https://twitter.com/albangerome?lang=en-gb" title="Follow Alban Gérôme on  Twitter">@albangerome</a>
