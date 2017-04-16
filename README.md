@@ -1,5 +1,6 @@
-Kermit v.0.8 core
-=================
+Kermit v.0.8.2 core
+===================
+Updated 16 Apr 2017
 
 <a id="Table-of-contents"></a>Table of contents:
 ------------------------------------------------
@@ -123,7 +124,7 @@ Regardless of whether your website uses only full page loads or a SPA if you hav
 
 
 <a id="Extensible-and-modular"></a>Extensible and modular architecture:
-------------------------------------------------------------------------------------
+-----------------------------------------------------------------------
 
 A single library trying to support every requirement would be a huge file even after minifaction and could impact your page load performance. Page render speed is measured by search engines and slow websites are penalised with a lower ranking than they otherwise would have. For this reason Kermit is built around a core file augmented by modules. You use only the modules you need and keep Kermit small. A Kermit module should also not require the Kermit core code to change. Rewriting functions of the Kermit core also means that the original functions in the core are dead code which was loaded for nothing. The module is responsible for working with the core and not the other way around. The Kermit core configuration section excepted the core should not change or only very rarely.
 
@@ -276,15 +277,22 @@ _blur_ category
 
 <a id="Core-public-methods-reference"></a>Core public methods reference:
 ------------------------------------------------------------------------
+Updated 14 Apr 2017 - all methods starting with _kermit.utils.get_ are now grouped under a single collection: _kermit.utils.get_
 
 * kermit.utils.addListener : cross-browser event handler
-* kermit.utils.getAbsoluteURL : convert a relative URL into an absolute URL
-* kermit.utils.getAttributes : generates the JSON object for interactions and page views from HTML5 data- attributes and additional external attributes referred to as _properties_. These additional properties are often added by modules
-* kermit.utils.getElementSelector : generates a basic CSS selector for an element like "input[type]"
-* kermit.utils.getEventSource : cross-browser way of finding the real element that the source of an event, i.e. the link and the HTML or text content of a link
-* kermit.utils.getEventType : finds the default Javascript event for a given HTML element
-* kermit.utils.getNodeType : tells whether an element contains a Kermit interaction or page view tag
-* kermit.utils.getSummary : returns a Javascript array of all HTML elements containing Kermit tags
+* kermit.utils.getAbsoluteURL : deprecated from v0.8.2 - please use _kermit.utils.get.absoluteURL_
+* kermit.utils.getAttributes : deprecated from v0.8.2 - please use _kermit.utils.get.attributes_
+* kermit.utils.getElementSelector : deprecated from v0.8.2 - please use _kermit.utils.get.elementSelector_
+* kermit.utils.getEventType : deprecated from v0.8.2 - please use _kermit.utils.get.eventType_
+* kermit.utils.getNodeType : deprecated from v0.8.2 - please use _kermit.utils.get.nodeType_
+* kermit.utils.getSummary : deprecated from v0.8.2 - please use _kermit.utils.get.summary_
+* kermit.utils.get.absoluteURL : convert a relative URL into an absolute URL
+* kermit.utils.get.attributes : generates the JSON object for interactions and page views from HTML5 data- attributes and additional external attributes referred to as _properties_. These additional properties are often added by modules
+* kermit.utils.get.elementSelector : generates a basic CSS selector for an element like "input[type]"
+* kermit.utils.get.eventSource : cross-browser way of finding the real element that the source of an event, i.e. the link and the HTML or text content of a link
+* kermit.utils.get.eventType : finds the default Javascript event for a given HTML element
+* kermit.utils.get.nodeType : tells whether an element contains a Kermit interaction or page view tag
+* kermit.utils.get.summary : returns a Javascript array of all HTML elements containing Kermit tags
 * kermit.utils.isVisible : tells whether the element is visible
 * kermit.utils.loadJS : lazy loads a script and executes a callback after it has loaded. This is how modules are loaded
 * kermit.utils.pageViewListener : cross-browser page load or page update detection based on DOM mutations or equivalent
@@ -336,6 +344,6 @@ _blur_ category
 
 
 Alban Gérôme
-27 Mar 2017
+16 Apr 2017
 
 Follow me on Twitter: <a href="https://twitter.com/albangerome?lang=en-gb" title="Follow Alban Gérôme on  Twitter">@albangerome</a>
