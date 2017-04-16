@@ -1,6 +1,7 @@
 Beavis.js and md5.js
 ====================
 Updated 16 Apr 2017
+Latest versions: beavis.0.3.js and md5.0.2.js
 
 Introduction:
 -------------
@@ -17,7 +18,7 @@ The Beavis module generates unique identifiers and verification codes and requir
 
 
 How to load beavis.js and md5.js?
--------------------------------------
+---------------------------------
 
 Let's have a refresher on how to load a module in Kermit core:
 
@@ -56,8 +57,10 @@ Beavis and verification codes:
 
 A common cause of frustration with web developers is sudden losses of analytics reporting. The developers have made changes, they did not thing that the analytics code would be impacted so the analytics team was not informed of these impending changes. The testers also found no Javascript errors so nobody thought that analytics would stop collecting data for one or more reports. We need somthing that will throw at least a warning when the HTML and/or the analytics tag have changed. Kermit core already provides handy function to see all Kermit tags at a glance:
 
-* kermit.utils.getSummary : this will return a Javascript array of all HTML elements with Kermit tags
-* kermit.utils.getAttributes : this will return a JSON object with all the Kermit data for a given HTML element
+* kermit.utils.getSummary : deprecated with beavis.0.3.js, use _kermit.utils.get.summary_
+* kermit.utils.getAttributes : deprecated with beavis.0.3.js, use _kermit.utils.get.attributes_
+* kermit.utils.get.summary : this will return a Javascript array of all HTML elements with Kermit tags
+* kermit.utils.get.attributes : this will return a JSON object with all the Kermit data for a given HTML element
 
 Beavis will generate a verification code of checksum which will change when:
 
@@ -82,9 +85,12 @@ Beavis will also add a property in your pageviews and interactions JSON objects:
 Beavis.js and md5.js properties:
 --------------------------------
 
-* kermit.utils.getMD5 : pass a string and get the MD5 hash
-* kermit.utils.getSelector : pass a DOM element and get the CSS selector back
-* kermit.utils.getCheckSum : calculate the verification code for the visible elements in the HTML body
+* kermit.utils.getMD5 : deprecated with beavis.0.3.js, use _kermit.utils.get.MD5_
+* kermit.utils.getSelector : deprecated with beavis.0.3.js, use _kermit.utils.get.selector_
+* kermit.utils.getCheckSum : deprecated with beavis.0.3.js, use _kermit.utils.get.checksum_
+* kermit.utils.get.MD5 : pass a string and get the MD5 hash
+* kermit.utils.get.selector : pass a DOM element and get the CSS selector back
+* kermit.utils.get.checkSum : calculate the verification code for the visible elements in the HTML body
 
 
 Added in Beavis v0.2:
@@ -118,6 +124,12 @@ Example
 data-analytics-interaction-dedupe="version 1"
 
 </code></pre>
+
+
+Changed in Beavis v0.3:
+-----------------------
+
+All methods starting with _get_ are now grouped under _kermit.utils.get_. For example _kermit.utils.getChecksum_ is now _kermit.utils.get.checksum_.
 
 
 Alban Gérôme
