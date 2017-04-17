@@ -73,7 +73,7 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
           [].map.call(
             document.querySelectorAll(b.pageViewDescription),
             function(element){
-              e = (a.isVisible(element)) ? a.get.MD5(element.innerHTML) : a.get.outerMD5(element);
+              e = a.get.outerMD5(element);
               [a.get.attributes].map(function(c){
                 [
                   "description",
@@ -93,17 +93,16 @@ ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEAL
               });
             }
           );
-          [].map.call(
-            document.querySelectorAll(b.interactionDescription),
-            function(element){
+          var l = kermit.utils.get.summary("interaction");
+          if(l){
+            kermit.utils.get.summary("interaction").map(function(element){
               d = [
                 a.get.selector(element),
-                element.dataset.analyticsInteractionId,
                 element.dataset.analyticsInteractionDedupe || ""
               ].join("");
               element.setAttribute("data-analytics-interaction-id", a.get.MD5(d));
-            }
-          );
+            });
+          };
           [
             a.get.attributes,
             a.get.nodeType,
