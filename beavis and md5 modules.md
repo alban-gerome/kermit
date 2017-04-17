@@ -1,6 +1,6 @@
 Beavis.js and md5.js
 ====================
-Updated 16 Apr 2017, latest versions: beavis.0.3.js and md5.0.2.js
+Updated 17 Apr 2017, latest versions: beavis.0.3.js and md5.0.2.js
 
 Introduction:
 -------------
