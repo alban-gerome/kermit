@@ -130,8 +130,10 @@ Changed in Beavis v0.3:
 
 All methods starting with _get_ are now grouped under _kermit.utils.get_. For example _kermit.utils.getChecksum_ is now _kermit.utils.get.checksum_.
 
+All DOM elements with a Kermit interaction element automatically get an interaction id. Previously only DOM elements with a _data-analytics-interaction-description_ attribute were getting one. If this _data-analytics-interaction-description_ attribute was defined via _data-analytics-interaction-key_ the DOM element was not getting an interaction id. As of Beavis v0.3 this is automatic for DOM elements tagged using any Kermit interaction tag regardless of how that Kermit interaction was applied, on the element itself or via a lookup key.
+
 
 Alban Gérôme
-16 Apr 2017
+17 Apr 2017
 
 Follow me on Twitter: <a href="https://twitter.com/albangerome?lang=en-gb" title="Follow Alban Gérôme on  Twitter">@albangerome</a>
