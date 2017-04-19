@@ -367,10 +367,10 @@ var kermit = {
       }
     },
     dependencies:[
-      "../kermit/include.js",
-      "../kermit/beavis.0.3.js",
-      "../kermit/google.js",
-      "../kermit/consent.0.2.js"
+      "http://www.albangerome.com/kermit/include.js",
+      "http://www.albangerome.com/kermit/beavis.0.3.js",
+      "http://www.albangerome.com/kermit/google.js",
+      "http://www.albangerome.com/kermit/consent.0.2.js"
     ]
   },
   fireInteraction:function(element){
