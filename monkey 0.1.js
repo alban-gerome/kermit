@@ -21,7 +21,7 @@
   version:"0.1",
   url:"http://www.albangerome.com/kermit/kermit.0.8.2.js",
   callback:function(data){
-  	var i = kermit.handlePageViews.disabled;
+    var i = kermit.handlePageViews.disabled;
     if(i)  i = false;
   },
   pageView:{
