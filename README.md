@@ -1,6 +1,6 @@
-Kermit v.0.8.2 core
+Kermit v.0.8.3 core
 ===================
-Updated 16 Apr 2017, latest version is kermit.0.8.2.js
+Updated 25 Sep 2017, latest version is kermit.0.8.3.js
 
 <a id="Table-of-contents"></a>Table of contents:
 ------------------------------------------------
@@ -344,6 +344,6 @@ Updated 14 Apr 2017 - all methods starting with _kermit.utils.get_ are now group
 
 
 Alban Gérôme
-16 Apr 2017
+25 Sep 2017
 
 Follow me on Twitter: <a href="https://twitter.com/albangerome?lang=en-gb" title="Follow Alban Gérôme on  Twitter">@albangerome</a>
