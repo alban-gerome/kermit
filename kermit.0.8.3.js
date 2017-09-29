@@ -388,7 +388,7 @@ var kermit = {
     },
     dependencies:[
       "http://www.albangerome.com/kermit/include.js",
-      "http://www.albangerome.com/kermit/beavis.0.3.js",
+      "http://www.albangerome.com/kermit/beavis.0.3.1.js",
       "http://www.albangerome.com/kermit/consent.0.2.js",
       "http://www.albangerome.com/kermit/google.js"
     ]
