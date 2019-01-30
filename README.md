@@ -24,7 +24,7 @@ Updated 25 Sep 2017, latest version is kermit.0.8.3.js
 
 There are several types of tracking requirements, two of which are page views and interactions with elements on the page such as button clicks. Other types of tracking requirements will be related to e-commerce transactions, such as adding items to a shopping basket. At the time of writing this markdown file Kermit is a client-side Javascript to support page views and interactions only.
 
-Kermit will help you on different levels. It will infer default settings from the page HTML which will get your started fast and make the learning curve less steep. When you revisit your tagging either as a result of curiousity or necessity you will be able to override the default settings.
+Kermit will help you on different levels. It will infer default settings from the page HTML which will get your started fast and make the learning curve less steep. When you revisit your tagging either as a result of curiosity or necessity you will be able to override the default settings.
 
 Once the developers have a tagging guide describing your tracking requirements your code might be reinterpreted or split into several files. The developers need to see whether the tracking will still work and the implementation specialist or team will need to be able to check the tags. Kermit provides you with an easy way to see your Kermit tags as they fire.
 
