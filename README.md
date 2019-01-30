@@ -93,7 +93,7 @@ Browsers implement these differently but Kermit handles these using cross-browse
 Kermit does not need to know that clicks are what you need to measure. If this is a button it will infer that clicks is what you are after by default. If the element was a drop-down menu or a text field the click event is not relevant there. Kermit will infer these Javascript events based on the HTML tag:
 
  * _click_ - buttons (not radio buttons), links and checkboxes
- * _changes_ - drop-downs and radio buttons
+ * _change_ - drop-downs and radio buttons
  * _blur_ - input text fields (all variants thereof) and textarea
 
 The _click_ event fires on drop-down menus but once when you open the menu and each time you select an item in the menu. The _blur_ event only fires when the element was interacted with and the interaction has finished. Tracking every key pressed in a text field is overkill, knowing that the element was interacted with is sufficient. A text field interacted with but left blank is still an interaction, perhaps suggesting that the field label contains confusing copy which is actionable insight.
