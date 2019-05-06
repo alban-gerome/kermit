@@ -1,6 +1,6 @@
-Kermit v.0.8.3 core
+Kermit v.0.8.4 core
 ===================
-Updated 25 Sep 2017, latest version is kermit.0.8.3.js
+Updated 6 May 2019, latest version is kermit.0.8.4.js
 
 <a id="Table-of-contents"></a>Table of contents:
 ------------------------------------------------
