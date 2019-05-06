@@ -344,6 +344,6 @@ Updated 14 Apr 2017 - all methods starting with _kermit.utils.get_ are now group
 
 
 Alban Gérôme
-25 Sep 2017
+6 May 2019
 
 Follow me on Twitter: <a href="https://twitter.com/albangerome?lang=en-gb" title="Follow Alban Gérôme on  Twitter">@albangerome</a>
